@@ -11,6 +11,8 @@ def main():
             
         if HowToPlay == 'Y':
             DecryptText = input('what text would you like to decrypt?').upper()
+            Decryptshift = int(input('how much would you like to shift the key by? '))
+            print(decryption(DecryptText,Decryptshift))
     
  
             
@@ -25,5 +27,17 @@ def encryption(text,shift):
             shiftedIndex = shiftedIndex-26
         encrypted.append(ALPHABETS[shiftedIndex])
     return "".join(encrypted)
-    
+
+
+def decryption(text,shift):
+    encrypted = []
+    for textIndex in range(0,len(text)):
+        indexOfCurrentElementBeignConverted = ALPHABETS.index(text[textIndex])
+        shiftedIndex = indexOfCurrentElementBeignConverted - shift
+        if shiftedIndex > 25:
+            shiftedIndex = shiftedIndex-26
+        encrypted.append(ALPHABETS[shiftedIndex])
+    return "".join(encrypted)
+
 main()
+
