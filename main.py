@@ -1,4 +1,4 @@
-ALPHABETS = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
+ALPHABETS = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ '
 
 def main():
     HowToPlay = ""
@@ -23,8 +23,8 @@ def encryption(text,shift):
     for textIndex in range(0,len(text)):
         indexOfCurrentElementBeignConverted = ALPHABETS.index(text[textIndex])
         shiftedIndex = indexOfCurrentElementBeignConverted + shift
-        if shiftedIndex > 25:
-            shiftedIndex = shiftedIndex-26
+        if shiftedIndex > 26:
+            shiftedIndex = shiftedIndex-27
         encrypted.append(ALPHABETS[shiftedIndex])
     return "".join(encrypted)
 
@@ -34,8 +34,8 @@ def decryption(text,shift):
     for textIndex in range(0,len(text)):
         indexOfCurrentElementBeignConverted = ALPHABETS.index(text[textIndex])
         shiftedIndex = indexOfCurrentElementBeignConverted - shift
-        if shiftedIndex > 25:
-            shiftedIndex = shiftedIndex-26
+        if shiftedIndex > 26:
+            shiftedIndex = shiftedIndex-27
         encrypted.append(ALPHABETS[shiftedIndex])
     return "".join(encrypted)
 
