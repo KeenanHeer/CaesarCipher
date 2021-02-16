@@ -17,9 +17,6 @@ def main():
             allPossibilities(DecryptText)
 
     
- 
-            
-
 
 def encryption(text,shift):
     encrypted = []
@@ -46,7 +43,29 @@ def decryption(text,shift):
 def allPossibilities(text):
     shiftValue = 0
     while shiftValue < 26:
-        print(f"{shiftValue}: {decryption(text,shiftValue)}")
+        if(checkIfEnglishWord(decryption(text,shiftValue))):
+            print(f"{shiftValue}: {decryption(text,shiftValue)}")
+            break
+        
         shiftValue = shiftValue + 1 
+
+def checkIfEnglishWord(textToCheck):
+    with open("./words.txt","r") as myNewFile:
+        for lineIndex,line in enumerate(myNewFile):
+            for word in textToCheck.split(' '):
+                if len(word)>0 and line.replace('\n','').upper() == word:
+                    return True
+    return False
+        
+
+
+
+
+
+
+
+    
+
+
         
 main()
