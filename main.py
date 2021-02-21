@@ -3,9 +3,9 @@ ALPHABETS = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ '
 def main():
     HowToPlay = ""
     while HowToPlay != 'Z':
-        HowToPlay = input("press x to do encryption \nPress y to do decryption \nPress z to close the programme\nPress H to find all pssibilties of the decrypted text. ").upper()
+        HowToPlay = input("press x to do encryption: \nPress y to do decryption: \nPress z to close the programme:\nPress H to find all pssibilties of the decrypted text: ").upper()
         if HowToPlay == 'X':
-            text = input("\nWhat text do you want to covert?\n ").upper()
+            text = input("\nWhat text do you want to covert?\n").upper()
             shift = int(input('\nhow much would you like to shift the key by? \n'))
             print(encryption(text,shift))
         elif HowToPlay == 'Y':
@@ -45,8 +45,11 @@ def allPossibilities(text):
     while shiftValue < 26:
         if(checkIfEnglishWord(decryption(text,shiftValue))):
             print(f"{shiftValue}:{decryption(text,shiftValue)}")
-            break
+            return
         shiftValue = shiftValue + 1 
+    while shiftValue < 26:
+        print(f"{shiftValue}:{decryption(text,shiftValue)}")
+        shiftValue = shiftValue + 1
 
 def checkIfEnglishWord(textToCheck):
     with open("./words.txt","r") as myNewFile:
@@ -55,17 +58,5 @@ def checkIfEnglishWord(textToCheck):
                 if len(word)>0 and line.replace('\n','').upper() == word:
                     return True
     return False
-        
-
-#Xlean up all the outputs
-# If a none english entry is foud, then print out all the differnet possibalities
-
-
-
-
-
-    
-
-
         
 main()
