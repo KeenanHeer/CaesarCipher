@@ -5,15 +5,15 @@ def main():
     while HowToPlay != 'Z':
         HowToPlay = input("press x to do encryption \nPress y to do decryption \nPress z to close the programme\nPress H to find all pssibilties of the decrypted text. ").upper()
         if HowToPlay == 'X':
-            text = input("What text do you want to covert? ").upper()
-            shift = int(input('how much would you like to shift the key by? '))
+            text = input("\nWhat text do you want to covert?\n ").upper()
+            shift = int(input('\nhow much would you like to shift the key by? \n'))
             print(encryption(text,shift))
         elif HowToPlay == 'Y':
-            DecryptText = input('what text would you like to decrypt?').upper()
-            Decryptshift = int(input('how much would you like to shift the key by? '))
+            DecryptText = input('\nwhat text would you like to decrypt?\n').upper()
+            Decryptshift = int(input('\nhow much would you like to shift the key by?\n '))
             print(decryption(DecryptText,Decryptshift))
         elif HowToPlay == 'H':
-            DecryptText = input('what text would you like to decrypt?').upper()
+            DecryptText = input('\nwhat text would you like to decrypt?\n').upper()
             allPossibilities(DecryptText)
 
     
@@ -44,9 +44,8 @@ def allPossibilities(text):
     shiftValue = 0
     while shiftValue < 26:
         if(checkIfEnglishWord(decryption(text,shiftValue))):
-            print(f"{shiftValue}: {decryption(text,shiftValue)}")
+            print(f"{shiftValue}:{decryption(text,shiftValue)}")
             break
-        
         shiftValue = shiftValue + 1 
 
 def checkIfEnglishWord(textToCheck):
@@ -58,7 +57,8 @@ def checkIfEnglishWord(textToCheck):
     return False
         
 
-
+#Xlean up all the outputs
+# If a none english entry is foud, then print out all the differnet possibalities
 
 
 
